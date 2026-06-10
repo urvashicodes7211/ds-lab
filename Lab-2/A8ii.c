@@ -3,7 +3,7 @@
 int fac(int);
 int main(){
     int n,f;
-    printf("Enter n:");
+    printf("Enter n :");
     scanf("%d",&n);
     f = fac(n);
     printf("%d",f);

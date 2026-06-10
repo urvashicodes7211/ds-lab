@@ -2,7 +2,7 @@
 #include<stdio.h>
 int main(){
     int n,m,rev=0;
-    printf("Enter n:");
+    printf("Enter n : ");
     scanf("%d",&n);
     while(n>0){
         m = n % 10;
