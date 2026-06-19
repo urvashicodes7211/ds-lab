@@ -1,3 +1,4 @@
+//WAP to print Pascal triangle. 
 #include<stdio.h>
 int main(){
     int n,i,j;

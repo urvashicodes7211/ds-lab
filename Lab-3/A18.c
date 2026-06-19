@@ -1,3 +1,4 @@
+//Write a program to calculate average of first n numbers.
 #include<stdio.h>
 int main(){
     int n,i,sum;

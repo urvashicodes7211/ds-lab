@@ -1,3 +1,4 @@
+//Write a program to find whether the array contains a duplicate number or not. 
 #include<stdio.h>
 int main(){
     int n,i,j;
