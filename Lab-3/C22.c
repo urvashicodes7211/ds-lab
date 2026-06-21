@@ -8,9 +8,9 @@ int main(){
         for(j=0;j<n-i-1;j++){
             printf(" ");
         }
-        long num = 1;
+        int num = 1;
         for(j=0;j<=i;j++){
-            printf("%3ld",num);
+            printf("%d ",num);
             num = num * (i-j)/(j+1);
         }
         printf("\n");
