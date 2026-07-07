@@ -7,24 +7,7 @@ struct Node {
     struct Node *link;
 };
 struct Node *first = NULL;
-struct Node *copyFirst = NULL;
 
-void insertFront(int x){
-    struct Node *newNode;
-
-    newNode = (struct Node *)malloc(sizeof(struct Node));
-
-    if(newNode == NULL){
-        printf("Memory Allocation Failed\n");
-        return;
-    }
-
-    newNode->info = x;
-
-    newNode->link = first;
-
-    first = newNode;
-}
 void display(){
     struct Node *temp = first;
 
@@ -42,43 +25,57 @@ void display(){
 
     printf("NULL\n");
 }
-void copyList(){
-    struct Node *temp = first;
-    struct Node *newNode, *last = NULL;
+void insertEnd(int x){
+    struct Node *newNode;
+    struct Node *save;
 
-    while(temp != NULL){
-        newNode = (struct Node *)malloc(sizeof(struct Node));
+    newNode = (struct Node *)malloc(sizeof(struct Node));
+    if(newNode == NULL){
+        printf("Memory Allocation Failed\n");
+        return;
+    }
 
-        newNode->info = temp->info;
-        newNode->link = NULL;
+    newNode->info = x;
+    newNode->link = NULL;
 
-        if(copyFirst == NULL){
-            copyFirst = newNode;
-            last = newNode;
-        }else{
-            last->link = newNode;
-            last = newNode;
+    if(first == NULL){
+        first = newNode;
+    }else{
+        save = first;
+
+        while(save->link != NULL){
+            save = save->link;
         }
 
-        temp = temp->link;
+        save->link = newNode;
+    }
+}
+void copyList(){
+    struct Node *save = first;
+
+    while(save != NULL){
+        insertEnd(save->info);
+        save = save->link;
     }
 }
 void displayCopy(){
-    struct Node *temp = copyFirst;
+    struct Node *save = first;
 
-    while(temp != NULL){
-        printf("%d -> ", temp->info);
-        temp = temp->link;
+    printf("Copied List: ");
+
+    while(save != NULL){
+        printf("%d -> ", save->info);
+        save = save->link;
     }
 
     printf("NULL\n");
 }
 int main(){
-    insertFront(5);
-    insertFront(4);
-    insertFront(3);
-    insertFront(2);
-    insertFront(1);
+    insertEnd(5);
+    insertEnd(4);
+    insertEnd(3);
+    insertEnd(2);
+    insertEnd(1);
     display();
 
     copyList();
