@@ -62,10 +62,15 @@ void removeDuplicate(){
 }
 
 int main(){
-    insertFront(2);
-    insertFront(2);
-    insertFront(3);
-    insertFront(3);
+    insertFront(27);
+    insertFront(27);
+    insertFront(13);
+    insertFront(13);
+    insertFront(13);
+    insertFront(6);
+    insertFront(1);
+    insertFront(1);
+
     display();
 
     removeDuplicate();
