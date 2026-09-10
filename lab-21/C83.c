@@ -32,19 +32,16 @@ struct TreeNode* createNode(char name[], char phone[]){
     return newNode;
 }
 
-struct TreeNode* insertNode(struct TreeNode *root,char name[], char phone[])
-{
+struct TreeNode* insertNode(struct TreeNode *root,char name[], char phone[]){
     if (root == NULL){
         return createNode(name, phone);
     }
 
     if (strcmp(name, root->name) < 0){
         root->left = insertNode(root->left, name, phone);
-    }
-    else if (strcmp(name, root->name) > 0){
+    }else if (strcmp(name, root->name) > 0){
         root->right = insertNode(root->right, name, phone);
-    }
-    else{
+    }else{
         printf("Name already exists!\n");
     }
 
@@ -72,14 +69,13 @@ struct TreeNode* deleteNode(struct TreeNode *root, char name[]){
         root->left = deleteNode(root->left, name);
     }else if (strcmp(name, root->name) > 0){
         root->right = deleteNode(root->right, name);
-    }
-    else{
+    }else{
         if (root->left == NULL && root->right == NULL){
             free(root);
             return NULL;
         }else if (root->left == NULL){
             temp = root->right;
-            free(root);
+            free(root);  
             return temp;
         }else if (root->right == NULL){
             temp = root->left;
@@ -109,8 +105,7 @@ struct TreeNode* searchNode(struct TreeNode *root, char name[]){
 
     if (strcmp(name, root->name) < 0){
         return searchNode(root->left, name);
-    }
-    else{
+    }else{
         return searchNode(root->right, name);
     }
 }
